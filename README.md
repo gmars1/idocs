@@ -53,7 +53,11 @@ idocs -i                                   # TUI mode
 `idocs up <name>` — re-hash sources after review<br>
 `idocs stale` — list only stale docs<br>
 `idocs read <name>` — print doc content<br>
-`idocs edit <name> --set/replace/lines` — edit doc content<br>
+`idocs edit <name> --set "..."` — replace entire doc content<br>
+`idocs edit <name> --lines N-M --text "..."` — replace a range of lines<br>
+`idocs edit <name> --replace "x" --with "y"` — find-and-replace<br>
+`idocs edit <name> --rehash` — update source hashes after editing<br>
+`idocs edit <name>` (stdin pipe) — read new content from stdin<br>
 `idocs -i` — interactive TUI (two-panel viewer)<br>
 `idocs --json` — machine-readable output
 
