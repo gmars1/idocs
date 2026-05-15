@@ -147,7 +147,10 @@ fn run_app(terminal: &mut Terminal<CrosstermBackend<io::Stdout>>, mut app: App) 
                         }
                     }
                 },
-                KeyCode::Enter => open_in_editor(terminal, &mut app),
+                KeyCode::Enter => {
+                    open_in_editor(terminal, &mut app);
+                    let _ = terminal.draw(|f| draw(f, &app));
+                }
                 _ => {}
             }
         }
@@ -187,6 +190,7 @@ fn open_in_editor(terminal: &mut Terminal<CrosstermBackend<io::Stdout>>, app: &m
 
     let _ = enable_raw_mode();
     let _ = execute!(terminal.backend_mut(), EnterAlternateScreen);
+    let _ = terminal.clear();
 
     app.refresh();
 }
