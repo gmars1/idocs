@@ -5,6 +5,15 @@ CLI tool that detects when your markdown docs become stale relative to source fi
 Track which source files your documentation references. When a source changes,
 idocs flags the doc as stale — re-hash after review to acknowledge it's up to date.
 
+---
+
+## examples
+
+![example](imgs/example.png)
+
+![tui](imgs/tui.png)
+
+
 ## Install
 
 ```sh
