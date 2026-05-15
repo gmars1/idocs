@@ -25,12 +25,12 @@ idocs flags the doc as stale — re-hash after review to acknowledge it's up to 
 ## Install
 
 ```sh
-# if you have Rust toolchain
+# install directly from git
 cargo install --git https://github.com/gmars1/idocs
 
-# or build from source
+# or clone and install from path
 git clone https://github.com/gmars1/idocs && cd idocs
-cargo build --release && ./install.sh
+cargo install --path .
 ```
 
 ## Quick start
