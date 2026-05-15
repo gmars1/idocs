@@ -9,7 +9,11 @@ idocs flags the doc as stale — re-hash after review to acknowledge it's up to 
 
 ## examples
 
+### cli
+
 ![example](imgs/example.png)
+
+### tui
 
 ![tui](imgs/tui.png)
 
