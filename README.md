@@ -17,6 +17,10 @@ idocs flags the doc as stale — re-hash after review to acknowledge it's up to 
 
 ![tui](imgs/tui.png)
 
+### tui after editing main.rs
+
+![tui_modified](imgs/tui_modified.png)
+
 
 ## Install
 
