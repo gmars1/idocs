@@ -44,12 +44,16 @@ idocs -i                                   # TUI mode
 
 ## Commands
 
+`idocs` — check all docs, show valid/stale<br>
+`idocs <file>` — filter docs tracking a specific source file<br>
+`idocs init` — initialize `.idocs` directory<br>
 `idocs add <name> <sources...>` — register a doc tracking source files<br>
-`idocs up <name>` — re-hash sources after manual review<br>
-`idocs edit <name> --set/replace/lines` — edit doc content<br>
-`idocs stale` — list only stale docs<br>
-`idocs info <name>` — doc details with source status<br>
 `idocs rm <name>` — remove a doc<br>
+`idocs info <name>` — doc details with source status<br>
+`idocs up <name>` — re-hash sources after review<br>
+`idocs stale` — list only stale docs<br>
+`idocs read <name>` — print doc content<br>
+`idocs edit <name> --set/replace/lines` — edit doc content<br>
 `idocs -i` — interactive TUI (two-panel viewer)<br>
 `idocs --json` — machine-readable output
 
