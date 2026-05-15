@@ -13,6 +13,8 @@ references and detects when those sources become stale.
   `cmd_rm`, `cmd_info`, `cmd_read`, `cmd_edit`, `cmd_stale`, `cmd_default`.
 - **`src/main.rs`** — CLI entry point. Defines the `Cli` struct and
   `Commands` enum via clap derive, routes subcommands to `cmds::*`.
+- **`src/tui.rs`** — Interactive TUI mode (`idocs -i`). ratatui + crossterm.
+  Two-panel layout (valid/stale), $EDITOR integration, keyboard navigation.
 
 ## Data flow
 
@@ -28,16 +30,18 @@ references and detects when those sources become stale.
 ## TUI mode
 
 Available via `idocs -i`. Built with ratatui + crossterm.
-Two-panel layout: valid docs (left) and stale docs (right).
-Navigate with arrows/Tab, press Enter to read a doc with markdown
-rendering (headings, lists, inline code, bold).
+Two-panel layout: valid docs (left, green) and stale docs (right, red).
+Pressing Enter on a doc suspends the TUI, opens the doc in $EDITOR
+(parsing args like `subl -w`), and resumes after the editor closes.
+`terminal.clear()` is called after re-entering alternate screen to
+ensure the full UI (including bottom help bar) redraws correctly.
 
-Keybindings: ↑↓/jk navigate, Tab switch panel, Enter read, r refresh, q quit.
+### Data flow for editor open
 
-## TUI mode
+1. TUI draws two-panel layout with help bar at bottom
+2. Enter key → `disable_raw_mode` + `LeaveAlternateScreen`
+3. Editor process runs (blocking)
+4. Editor exits → `enable_raw_mode` + `EnterAlternateScreen` + `terminal.clear()`
+5. Full redraw via `terminal.draw()`, sources re-checked
 
-Available via `idocs -i`. Built with ratatui + crossterm.
-Two-panel layout: valid docs (left) and stale docs (right).
-Press Enter on a doc to open it in $EDITOR (falls back to vi).
-
-Keybindings: ↑↓/jk navigate, Tab switch panel, Enter open in editor, r refresh, q quit.
+Keybindings: ↑↓/jk navigate, Tab switch panel, Enter open in $EDITOR, r refresh, q quit.

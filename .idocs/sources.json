@@ -8,7 +8,7 @@
         "src/cmds.rs": "fe24ce77838ca26878b43d745472569a9c16f449022571f580ea025081fb649a",
         "src/index.rs": "ee6899e2f9b4c342004b48388a3cb772ee7726acb7007a54cd864e123413be9c",
         "src/main.rs": "91763c9c69342f6dedb0110007a4d84b70ec425f1aa75f08250fe5acae02222a",
-        "src/tui.rs": "1e22625c1bd15a1d8bc513ea6ab2603d5614e72cb932deda0de8581e9edde317"
+        "src/tui.rs": "10603842ea465862f99b922989892b450be7e6654870c6f74532e3c9ac6ffe55"
       }
     },
     "commands": {

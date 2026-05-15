@@ -18,3 +18,4 @@ All commands produce machine-readable output with the `--json` flag.
 | `idocs edit <name> --replace "x" --with "y"` | Find-and-replace in doc |
 | `idocs edit <name> --rehash` | Update source hashes after editing |
 | `idocs edit <name>` (stdin pipe) | Read new content from stdin |
+| `idocs -i` | Interactive TUI: two-panel viewer (valid/stale docs), $EDITOR integration, keyboard navigation |
