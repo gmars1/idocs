@@ -1,0 +1,54 @@
+name: Release
+
+on:
+  push:
+    tags: [v*]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            asset: idocs-x86_64-ubuntu
+          - os: macos-latest
+            asset: idocs-x86_64-macos
+          - os: windows-latest
+            asset: idocs-x86_64-windows.exe
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+      - run: cargo build --release
+      - run: cp target/release/idocs ${{ matrix.asset }}
+        shell: bash
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.asset }}
+          path: ${{ matrix.asset }}
+
+  build-arch:
+    runs-on: ubuntu-latest
+    container: archlinux:latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pacman -Sy --noconfirm rust gcc
+      - run: cargo build --release
+      - run: cp target/release/idocs idocs-x86_64-linux-arch
+      - uses: actions/upload-artifact@v4
+        with:
+          name: idocs-x86_64-linux-arch
+          path: idocs-x86_64-linux-arch
+
+  release:
+    needs: [build, build-arch]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+      - run: find artifacts -type f -exec cp {} . \;
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: idocs-*
+          generate_release_notes: true
