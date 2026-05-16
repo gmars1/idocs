@@ -1,0 +1,31 @@
+{
+  "docs": {
+    "architecture": {
+      "name": "architecture",
+      "file": ".idocs/docs/architecture.md",
+      "sources": {
+        "src/check.rs": "be79ca0f7dca362dbeffc90430657b7435b75463a64c2d5bb40f05b7ec6974ca",
+        "src/cmds.rs": "fe24ce77838ca26878b43d745472569a9c16f449022571f580ea025081fb649a",
+        "src/index.rs": "ee6899e2f9b4c342004b48388a3cb772ee7726acb7007a54cd864e123413be9c",
+        "src/main.rs": "91763c9c69342f6dedb0110007a4d84b70ec425f1aa75f08250fe5acae02222a",
+        "src/tui.rs": "1e22625c1bd15a1d8bc513ea6ab2603d5614e72cb932deda0de8581e9edde317"
+      }
+    },
+    "commands": {
+      "name": "commands",
+      "file": ".idocs/docs/commands.md",
+      "sources": {
+        "src/cmds.rs": "fe24ce77838ca26878b43d745472569a9c16f449022571f580ea025081fb649a",
+        "src/main.rs": "91763c9c69342f6dedb0110007a4d84b70ec425f1aa75f08250fe5acae02222a"
+      }
+    },
+    "development": {
+      "name": "development",
+      "file": ".idocs/docs/development.md",
+      "sources": {
+        "Cargo.toml": "d6d312834da4d6600d84d5664b215101bf0de732e734b573c2780e4593229431",
+        "tests/integration.rs": "cefc62b203c7ea752783a6ab81385d38abeb9d72e1be0ba8caef693f94abcf29"
+      }
+    }
+  }
+}
