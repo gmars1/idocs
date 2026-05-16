@@ -24,13 +24,22 @@ idocs flags the doc as stale — re-hash after review to acknowledge it's up to 
 
 ## Install
 
-```sh
-# install directly from git
-cargo install --git https://github.com/gmars1/idocs
+### Prebuilt binaries
 
-# or clone and install from path
-git clone https://github.com/gmars1/idocs && cd idocs
-cargo install --path .
+Download from [Releases](https://github.com/gmars1/idocs/releases):
+
+| Platform | Binary |
+|---|---|
+| Linux (x86_64) | `idocs-x86_64-linux` |
+| macOS (x86_64) | `idocs-x86_64-macos` |
+| Windows (x86_64) | `idocs-x86_64-windows.exe` |
+| Arch Linux (x86_64) | `idocs-x86_64-linux-arch` |
+
+### Build from source (any platform)
+
+```sh
+# requires Rust toolchain
+cargo install --git https://github.com/gmars1/idocs
 ```
 
 ## Quick start
